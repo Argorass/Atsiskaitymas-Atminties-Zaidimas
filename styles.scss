@@ -1,4 +1,33 @@
-* {
-  margin: 0;
-  padding: 0;
+$card-size: 100px;
+$card-border-radius: 8px;
+$card-background: #ccc;
+$card-flip-transition: 0.5s;
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, $card-size);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.card {
+  width: $card-size;
+  height: $card-size;
+  background-color: $card-background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: $card-border-radius;
+  cursor: pointer;
+  perspective: 1000px;
+  position: relative;
 }
