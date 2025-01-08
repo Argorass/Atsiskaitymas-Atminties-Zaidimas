@@ -1,17 +1,18 @@
 const symbols = [
-  "🌙",
-  "🍀",
-  "🌟",
-  "🌸",
-  "⭐",
-  "🌷",
-  "🌙",
-  "🍀",
-  "🌟",
-  "🌸",
-  "⭐",
-  "🌷",
+  "🚗",
+  "🏎️",
+  "🚜",
+  "🛵",
+  "🚓",
+  "🚑",
+  "🚗",
+  "🏎️",
+  "🚜",
+  "🛵",
+  "🚓",
+  "🚑",
 ];
+
 const gameBoard = document.querySelector("#game-board");
 const resetButton = document.querySelector("#reset-btn");
 let flippedCards = [];
@@ -27,7 +28,7 @@ function shuffle(array) {
 // Funkcija sukurti žaidimo korteles
 function createCards() {
   shuffle(symbols);
-  gameBoard.innerHTML = ""; // Išvalome esamas korteles
+  gameBoard.innerHTML = "";
 
   symbols.forEach((symbol, index) => {
     const card = document.createElement("div");
@@ -55,7 +56,7 @@ function createCards() {
     gameBoard.appendChild(card);
   });
 }
-// Funkcija apversti kortelę
+
 function flipCard() {
   if (flippedCards.length === 2 || this.classList.contains("flipped")) return;
 
@@ -64,6 +65,26 @@ function flipCard() {
 
   if (flippedCards.length === 2) {
     checkMatch();
+  }
+}
+// Funkcija patikrinti ar kortelės atitinka
+function checkMatch() {
+  const [firstCard, secondCard] = flippedCards;
+  const firstSymbol = firstCard.getAttribute("data-symbol");
+  const secondSymbol = secondCard.getAttribute("data-symbol");
+
+  if (firstSymbol === secondSymbol) {
+    matchedCards++;
+    flippedCards = [];
+    if (matchedCards === symbols.length / 2) {
+      setTimeout(() => alert("Laimėjote!"), 500);
+    }
+  } else {
+    setTimeout(() => {
+      firstCard.classList.remove("flipped");
+      secondCard.classList.remove("flipped");
+      flippedCards = [];
+    }, 1000);
   }
 }
 
