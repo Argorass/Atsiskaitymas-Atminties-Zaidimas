@@ -66,3 +66,15 @@ function flipCard() {
     checkMatch();
   }
 }
+
+function resetGame() {
+  matchedCards = 0;
+  flippedCards = [];
+  createCards();
+}
+
+// Event lisener'is
+resetButton.addEventListener("click", resetGame);
+
+// Pirmas  paleidimas
+createCards();
