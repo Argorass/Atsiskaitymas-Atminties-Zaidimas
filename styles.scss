@@ -1,6 +1,6 @@
 $card-size: 100px;
 $card-border-radius: 8px;
-$card-background: #ccc;
+$card-background: yellow;
 $card-flip-transition: 0.5s;
 
 .game-container {
@@ -30,4 +30,55 @@ $card-flip-transition: 0.5s;
   cursor: pointer;
   perspective: 1000px;
   position: relative;
+}
+.card .card-inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform $card-flip-transition;
+  transform: rotateY(180deg);
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(0deg);
+}
+
+.card .card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: $card-border-radius;
+}
+
+.card .card-back {
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem; /* Simbolis */
+  color: #000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: $card-border-radius;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+//Hoover'iai//
+button:hover {
+  background-color: orange;
+}
+.card:hover {
+  background-color: yellowgreen;
 }
