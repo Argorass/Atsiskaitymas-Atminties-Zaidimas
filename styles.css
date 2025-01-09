@@ -9,7 +9,7 @@
 .game-board {
   display: grid;
   grid-template-columns: repeat(4, 100px);
-  gap: 10px; /* Always keep the gap between cards */
+  gap: 10px;
   margin-bottom: 20px;
 }
 
