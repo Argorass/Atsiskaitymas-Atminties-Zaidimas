@@ -9,7 +9,7 @@
 .game-board {
   display: grid;
   grid-template-columns: repeat(4, 100px);
-  gap: 10px;
+  gap: 10px; /* Always keep the gap between cards */
   margin-bottom: 20px;
 }
 
@@ -53,7 +53,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem; /* Simbolis */
+  font-size: 2rem;
   color: #000;
   position: absolute;
   width: 100%;
@@ -78,4 +78,19 @@ button:hover {
 
 .card:hover {
   background-color: yellowgreen;
+}
+
+@media (max-width: 1024px) {
+  .game-board {
+    grid-template-columns: repeat(4, 80px);
+    gap: 12px;
+  }
+  .card {
+    font-size: 1.5rem;
+    width: 80px;
+    height: 80px;
+  }
+  button {
+    font-size: 0.9rem;
+  }
 }/*# sourceMappingURL=styles.css.map */

@@ -14,7 +14,7 @@ $card-flip-transition: 0.5s;
 .game-board {
   display: grid;
   grid-template-columns: repeat(4, $card-size);
-  gap: 10px;
+  gap: 10px; /* Always keep the gap between cards */
   margin-bottom: 20px;
 }
 
@@ -31,6 +31,7 @@ $card-flip-transition: 0.5s;
   perspective: 1000px;
   position: relative;
 }
+
 .card .card-inner {
   width: 100%;
   height: 100%;
@@ -57,7 +58,7 @@ $card-flip-transition: 0.5s;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem; /* Simbolis */
+  font-size: 2rem;
   color: #000;
   position: absolute;
   width: 100%;
@@ -75,10 +76,28 @@ button {
   cursor: pointer;
   font-size: 1rem;
 }
-//Hoover'iai//
+
 button:hover {
   background-color: orange;
 }
+
 .card:hover {
   background-color: yellowgreen;
+}
+
+// Tablet vaizdas
+@media (max-width: 1024px) {
+  $card-size: 80px;
+  .game-board {
+    grid-template-columns: repeat(4, $card-size);
+    gap: 12px;
+  }
+  .card {
+    font-size: 1.5rem;
+    width: 80px;
+    height: 80px;
+  }
+  button {
+    font-size: 0.9rem;
+  }
 }
